@@ -15,23 +15,6 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-    
-
-
-            
-
-
-
-            //for (int i = 0; i < 5; i++)
-            //{
-            //    Figure Rec = FigureFactory.GetFigure("Rectanhle");
-            //    if (Rec != null)
-            //        Rec.Build(longitude, latitude);
-            //    longitude += 0.1;
-            //    latitude += 0.1;
-            //}
-
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
@@ -54,7 +37,7 @@ namespace ConsoleApp1
         public Circ()
         {
             
-            colors = "blue";
+            colors = "red";
             height = 100;
             width = 100;
             x = 0;
@@ -122,15 +105,15 @@ namespace ConsoleApp1
 
 
                 Graphics g = e.Graphics;
-                SolidBrush redBrush = new SolidBrush(Color.Gray);
+                SolidBrush color = new SolidBrush(Color.FromName(circ.colors));
 
                 if (circ != null)
                 {
-                    g.FillEllipse(redBrush, circ.x, circ.y, circ.width, circ.height);
+                    g.FillEllipse(color, circ.x, circ.y, circ.width, circ.height);
                 }
                 else
                 {
-                    g.FillEllipse(redBrush,0, 0, 50, 50);
+                    g.FillEllipse(color, 0, 0, 50, 50);
                 }
               
             }
@@ -140,19 +123,19 @@ namespace ConsoleApp1
             {
 
                 FigureFactory figureFactory = new FigureFactory();
-                Figure circ = figureFactory.GetFigure("Rectangle");
+                Figure rec = figureFactory.GetFigure("Rectangle");
 
 
                 Graphics g = e.Graphics;
-                SolidBrush redBrush = new SolidBrush(Color.Gray);
+                SolidBrush color = new SolidBrush(Color.FromName(rec.colors));
 
-                if (circ != null)
+                if (rec != null)
                 {
-                    g.FillRectangle(redBrush, circ.x, circ.y, circ.width, circ.height);
+                    g.FillRectangle(color, rec.x, rec.y, rec.width, rec.height);
                 }
                 else
                 {
-                    g.FillRectangle(redBrush, 0, 0, 50, 50);
+                    g.FillRectangle(color, 0, 0, 50, 50);
                 }
 
             }
@@ -169,6 +152,7 @@ namespace ConsoleApp1
                 this.Name = "Form1";
                 this.Text = "Привет мир!";
                 this.ResumeLayout(false);
+               
 
 
             }
@@ -178,12 +162,6 @@ namespace ConsoleApp1
             }
 
         
-    //public partial class Form1 : Form
-    //    {
-    //        public Form1()
-    //        {
-    //            InitializeComponent();
-    //        }
         }
     }
 }
